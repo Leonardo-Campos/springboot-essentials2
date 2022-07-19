@@ -27,13 +27,11 @@ public class AnimeController {
 
     @GetMapping
     public ResponseEntity<Page<Anime>> list(Pageable pageable){
-        log.info(dateUtil.formateLocalDateTimeToDataBaseStyle(LocalDateTime.now()));
         return ResponseEntity.ok(animeService.listAll(pageable));
     }
 
     @GetMapping(path = "/all")
     public ResponseEntity<List<Anime>> listAll(){
-        log.info(dateUtil.formateLocalDateTimeToDataBaseStyle(LocalDateTime.now()));
         return ResponseEntity.ok(animeService.listAllNoPageable());
     }
 
